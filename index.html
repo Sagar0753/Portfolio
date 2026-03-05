@@ -4,18 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sagar | Portfolio</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
 <style>
+
+/* ===== BASIC RESET ===== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-  font-family: "Archivo Black", sans-serif;
-  font-weight: 300;
-  font-style: normal;
+font-family: "Archivo Black", sans-serif;
 }
 
 body{
@@ -23,7 +26,7 @@ background:#0f0f0f;
 color:white;
 }
 
-/* NAVBAR */
+/* ===== NAVBAR ===== */
 
 nav{
 display:flex;
@@ -59,7 +62,7 @@ nav ul li a:hover{
 color:#7c3aed;
 }
 
-/* HERO */
+/* ===== HERO SECTION ===== */
 
 .hero{
 display:flex;
@@ -90,19 +93,24 @@ line-height:1.6;
 
 .hero-buttons{
 margin-top:25px;
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+justify-content:center;
 }
 
 .btn{
-padding:10px 20px;
+padding:10px 18px;
 border:none;
 background:#7c3aed;
 color:white;
 border-radius:6px;
 cursor:pointer;
-margin-right:10px;
 text-decoration:none;
+display:inline-block;
 }
 
+/* ===== HEXAGON ===== */
 
 .hexagon{
 width:340px;
@@ -110,10 +118,10 @@ height:380px;
 background:#7c3aed;
 
 clip-path:polygon(
-25% 6%, 75% 6%, 
-100% 50%, 
-75% 94%, 
-25% 94%, 
+25% 6%, 75% 6%,
+100% 50%,
+75% 94%,
+25% 94%,
 0% 50%
 );
 
@@ -122,24 +130,21 @@ align-items:center;
 justify-content:center;
 }
 
-/* IMAGE INSIDE HEXAGON */
-
 .hexagon img{
 width:320px;
 height:340px;
-
 object-fit:cover;
 
 clip-path:polygon(
-25% 6%, 75% 6%, 
-100% 50%, 
-75% 94%, 
-25% 94%, 
+25% 6%, 75% 6%,
+100% 50%,
+75% 94%,
+25% 94%,
 0% 50%
 );
 }
 
-/* SECTION */
+/* ===== SECTIONS ===== */
 
 section{
 padding:70px 10%;
@@ -150,7 +155,7 @@ margin-bottom:30px;
 font-size:28px;
 }
 
-/* PROJECTS */
+/* ===== PROJECTS ===== */
 
 .projects{
 display:grid;
@@ -176,18 +181,7 @@ margin-top:8px;
 font-size:14px;
 }
 
-/* SKILLS */
-
-.skills span{
-display:inline-block;
-background:#1a1a1a;
-padding:8px 14px;
-border-radius:20px;
-margin:5px;
-font-size:14px;
-}
-
-/* CERTIFICATES */
+/* ===== CERTIFICATES ===== */
 
 .cert a{
 display:block;
@@ -199,14 +193,14 @@ color:white;
 text-decoration:none;
 }
 
-/* EDUCATION */
+/* ===== EDUCATION ===== */
 
 .edu p{
 color:#aaa;
 margin-top:5px;
 }
 
-/* CONTACT */
+/* ===== CONTACT ===== */
 
 .contact a{
 display:inline-block;
@@ -216,12 +210,62 @@ color:#7c3aed;
 text-decoration:none;
 }
 
-/* FOOTER */
+/* ===== FOOTER ===== */
 
 footer{
 text-align:center;
 padding:30px;
 color:#777;
+}
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width:768px){
+
+nav{
+padding:15px 5%;
+}
+
+nav ul{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+nav ul li{
+margin-left:12px;
+margin:6px 10px;
+}
+
+nav ul li a{
+font-size:14px;
+}
+
+.hero{
+flex-direction:column;
+text-align:center;
+gap:40px;
+padding:60px 5%;
+}
+
+.hero-text h1{
+font-size:34px;
+}
+
+.hexagon{
+width:240px;
+height:270px;
+margin:auto;
+}
+
+.hexagon img{
+width:220px;
+height:250px;
+}
+
+section{
+padding:50px 5%;
+}
+
 }
 
 </style>
@@ -231,6 +275,7 @@ color:#777;
 
 <nav>
 <h2>sagar.dev</h2>
+
 <ul>
 <li><a href="#home">Home</a></li>
 <li><a href="#projects">Projects</a></li>
@@ -238,8 +283,8 @@ color:#777;
 <li><a href="#education">Education</a></li>
 <li><a href="#contact">Contact</a></li>
 </ul>
-</nav>
 
+</nav>
 
 <section class="hero" id="home">
 
@@ -268,7 +313,6 @@ Ahmedabad, Gujarat, India
 
 </section>
 
-
 <section id="projects">
 
 <h2>Projects</h2>
@@ -295,7 +339,6 @@ projects, skills and achievements.
 
 </section>
 
-
 <section id="certificates">
 
 <h2>Certificates</h2>
@@ -314,7 +357,6 @@ Web Development Certificate
 
 </section>
 
-
 <section id="education">
 
 <h2>Education</h2>
@@ -329,7 +371,6 @@ Web Development Certificate
 
 </section>
 
-
 <section id="contact">
 
 <h2>Contact</h2>
@@ -338,28 +379,19 @@ Web Development Certificate
 
 <a href="mailto:sagarprajapati29090@gmail.com">Email</a>
 
-<a href="https://github.com/Sagar0753" target="_blank">
-GitHub
-</a>
+<a href="https://github.com/Sagar0753" target="_blank">GitHub</a>
 
-<a href="https://www.linkedin.com/in/sagar-prajapati-40019b323/" target="_blank">
-LinkedIn
-</a>
+<a href="https://www.linkedin.com/in/sagar-prajapati-40019b323/" target="_blank">LinkedIn</a>
 
-<a href="https://www.instagram.com/sagar_31.01_/?__pwa=1" target="_blank">
-Instagram
-</a>
+<a href="https://www.instagram.com/sagar_31.01_/?__pwa=1" target="_blank">Instagram</a>
 
 </div>
 
 </section>
 
-
 <footer>
-
 © 2026 Sagar Prajapati  
 Built with HTML • CSS • JavaScript
-
 </footer>
 
 </body>
