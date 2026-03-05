@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sagar | Portfolio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+  font-family: "Archivo Black", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+body{
+background:#0f0f0f;
+color:white;
+}
+
+/* NAVBAR */
+
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:20px 10%;
+background:#111;
+position:sticky;
+top:0;
+}
+
+nav h2{
+color:white;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+}
+
+nav ul li{
+margin-left:25px;
+}
+
+nav ul li a{
+color:#aaa;
+text-decoration:none;
+font-size:15px;
+transition:0.3s;
+}
+
+nav ul li a:hover{
+color:#7c3aed;
+}
+
+/* HERO */
+
+.hero{
+display:flex;
+align-items:center;
+justify-content:space-between;
+padding:80px 10%;
+flex-wrap:wrap;
+}
+
+.hero-text{
+max-width:500px;
+}
+
+.hero-text h1{
+font-size:45px;
+margin:10px 0;
+}
+
+.hero-text span{
+color:#7c3aed;
+}
+
+.hero-text p{
+color:#aaa;
+margin-top:10px;
+line-height:1.6;
+}
+
+.hero-buttons{
+margin-top:25px;
+}
+
+.btn{
+padding:10px 20px;
+border:none;
+background:#7c3aed;
+color:white;
+border-radius:6px;
+cursor:pointer;
+margin-right:10px;
+text-decoration:none;
+}
+
+
+.hexagon{
+width:340px;
+height:380px;
+background:#7c3aed;
+
+clip-path:polygon(
+25% 6%, 75% 6%, 
+100% 50%, 
+75% 94%, 
+25% 94%, 
+0% 50%
+);
+
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* IMAGE INSIDE HEXAGON */
+
+.hexagon img{
+width:320px;
+height:340px;
+
+object-fit:cover;
+
+clip-path:polygon(
+25% 6%, 75% 6%, 
+100% 50%, 
+75% 94%, 
+25% 94%, 
+0% 50%
+);
+}
+
+/* SECTION */
+
+section{
+padding:70px 10%;
+}
+
+section h2{
+margin-bottom:30px;
+font-size:28px;
+}
+
+/* PROJECTS */
+
+.projects{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
+
+.card{
+background:#1a1a1a;
+padding:20px;
+border-radius:10px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.card p{
+color:#aaa;
+margin-top:8px;
+font-size:14px;
+}
+
+/* SKILLS */
+
+.skills span{
+display:inline-block;
+background:#1a1a1a;
+padding:8px 14px;
+border-radius:20px;
+margin:5px;
+font-size:14px;
+}
+
+/* CERTIFICATES */
+
+.cert a{
+display:block;
+background:#1a1a1a;
+padding:12px;
+margin:10px 0;
+border-radius:6px;
+color:white;
+text-decoration:none;
+}
+
+/* EDUCATION */
+
+.edu p{
+color:#aaa;
+margin-top:5px;
+}
+
+/* CONTACT */
+
+.contact a{
+display:inline-block;
+margin-right:15px;
+margin-top:10px;
+color:#7c3aed;
+text-decoration:none;
+}
+
+/* FOOTER */
+
+footer{
+text-align:center;
+padding:30px;
+color:#777;
+}
+
+</style>
+</head>
+
+<body>
+
+<nav>
+<h2>sagar.dev</h2>
+<ul>
+<li><a href="#home">Home</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#certificates">Certificates</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+
+<section class="hero" id="home">
+
+<div class="hero-text">
+
+<p>Hello, I'm</p>
+<h1>Sagar <span>Prajapati</span></h1>
+
+<p>
+Software Engineering Aspirant<br>
+Python • NumPy • DSA • Exploring AI/ML & Full-Stack Development
+<br><br>
+Ahmedabad, Gujarat, India
+</p>
+
+<div class="hero-buttons">
+<a href="#projects" class="btn">View Projects</a>
+<a href="#" class="btn">Download Resume</a>
+</div>
+
+</div>
+
+<div class="hexagon">
+<img src="sagar.jpg" alt="Sagar Photo">
+</div>
+
+</section>
+
+
+<section id="projects">
+
+<h2>Projects</h2>
+
+<div class="projects">
+
+<div class="card">
+<h3>Smart Luggage System</h3>
+<p>
+A smart luggage assistant that follows the user using Bluetooth RSSI tracking.
+Includes obstacle detection and GPS tracking for security.
+</p>
+</div>
+
+<div class="card">
+<h3>Portfolio Website</h3>
+<p>
+Personal portfolio website built using HTML, CSS and JavaScript to showcase
+projects, skills and achievements.
+</p>
+</div>
+
+</div>
+
+</section>
+
+
+<section id="certificates">
+
+<h2>Certificates</h2>
+
+<div class="cert">
+
+<a href="certificates/python-course.pdf" target="_blank">
+Python Programming Certificate
+</a>
+
+<a href="certificates/web-development.pdf" target="_blank">
+Web Development Certificate
+</a>
+
+</div>
+
+</section>
+
+
+<section id="education">
+
+<h2>Education</h2>
+
+<div class="edu">
+
+<h3>B.E. Information Technology</h3>
+<p>SAL Engineering and Technical Institute</p>
+<p>Gujarat Technological University (GTU)</p>
+
+</div>
+
+</section>
+
+
+<section id="contact">
+
+<h2>Contact</h2>
+
+<div class="contact">
+
+<a href="mailto:sagarprajapati29090@gmail.com">Email</a>
+
+<a href="https://github.com/Sagar0753" target="_blank">
+GitHub
+</a>
+
+<a href="https://www.linkedin.com/in/sagar-prajapati-40019b323/" target="_blank">
+LinkedIn
+</a>
+
+<a href="https://www.instagram.com/sagar_31.01_/?__pwa=1" target="_blank">
+Instagram
+</a>
+
+</div>
+
+</section>
+
+
+<footer>
+
+© 2026 Sagar Prajapati  
+Built with HTML • CSS • JavaScript
+
+</footer>
+
+</body>
+</html>
