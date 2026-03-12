@@ -24,7 +24,7 @@ font-family:"Archivo Black", sans-serif;
 body{
 background:#0f0f0f;
 color:white;
-overflow:hidden;
+overflow-x:hidden;
 }
 
 /* NAVBAR */
@@ -212,6 +212,89 @@ margin-left:5px;
 0%{opacity:1;}
 50%{opacity:0;}
 100%{opacity:1;}
+}
+
+/* =========================
+MOBILE RESPONSIVE DESIGN
+========================= */
+
+@media (max-width: 900px){
+
+nav{
+padding:15px 5%;
+flex-direction:column;
+align-items:flex-start;
+}
+
+nav ul{
+margin-top:10px;
+flex-wrap:wrap;
+}
+
+nav ul li{
+margin:8px 15px 0 0;
+}
+
+/* HERO STACK */
+
+.hero{
+flex-direction:column;
+text-align:center;
+padding:120px 5% 10px 5%;
+}
+
+.hero-text h1{
+font-size:32px;
+}
+
+.hero-text p{
+font-size:14px;
+}
+
+/* HEXAGON SMALLER */
+
+.hexagon{
+width:220px;
+height:250px;
+margin-top:30px;
+}
+
+.hexagon img{
+width:200px;
+height:230px;
+}
+
+/* BUTTONS */
+
+.hero-buttons{
+display:flex;
+flex-direction:column;
+gap:10px;
+align-items:center;
+}
+
+.btn{
+margin-right:0;
+}
+
+/* GRID STACK */
+
+.grid{
+grid-template-columns:1fr;
+}
+
+/* CONTAINER */
+
+.container{
+padding:20px 5%;
+}
+
+/* TYPEWRITER HEIGHT FIX */
+
+#typewriter{
+min-height:22px;
+}
+
 }
 
 </style>
