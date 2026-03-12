@@ -1,32 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="portfolioApp">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Sagar | Portfolio</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+<!-- AngularJS -->
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
 
 <style>
-
-/* ===== BASIC RESET ===== */
 
 *{
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family: "Archivo Black", sans-serif;
+font-family:"Archivo Black", sans-serif;
 }
 
 body{
 background:#0f0f0f;
 color:white;
+overflow:hidden;
 }
 
-/* ===== NAVBAR ===== */
+/* NAVBAR */
 
 nav{
 display:flex;
@@ -34,12 +35,10 @@ justify-content:space-between;
 align-items:center;
 padding:20px 10%;
 background:#111;
-position:sticky;
+position:fixed;
 top:0;
-}
-
-nav h2{
-color:white;
+width:100%;
+z-index:1000;
 }
 
 nav ul{
@@ -54,26 +53,20 @@ margin-left:25px;
 nav ul li a{
 color:#aaa;
 text-decoration:none;
-font-size:15px;
-transition:0.3s;
+cursor:pointer;
 }
 
 nav ul li a:hover{
 color:#7c3aed;
 }
 
-/* ===== HERO SECTION ===== */
+/* HERO */
 
 .hero{
 display:flex;
-align-items:center;
 justify-content:space-between;
-padding:80px 10%;
-flex-wrap:wrap;
-}
-
-.hero-text{
-max-width:500px;
+align-items:center;
+padding:100px 10% 10px 10%;
 }
 
 .hero-text h1{
@@ -93,24 +86,18 @@ line-height:1.6;
 
 .hero-buttons{
 margin-top:25px;
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-justify-content:center;
 }
 
 .btn{
 padding:10px 18px;
-border:none;
 background:#7c3aed;
-color:white;
 border-radius:6px;
-cursor:pointer;
+color:white;
 text-decoration:none;
-display:inline-block;
+margin-right:10px;
 }
 
-/* ===== HEXAGON ===== */
+/* HEXAGON */
 
 .hexagon{
 width:340px;
@@ -118,11 +105,7 @@ height:380px;
 background:#7c3aed;
 
 clip-path:polygon(
-25% 6%, 75% 6%,
-100% 50%,
-75% 94%,
-25% 94%,
-0% 50%
+25% 6%,75% 6%,100% 50%,75% 94%,25% 94%,0% 50%
 );
 
 display:flex;
@@ -136,28 +119,31 @@ height:340px;
 object-fit:cover;
 
 clip-path:polygon(
-25% 6%, 75% 6%,
-100% 50%,
-75% 94%,
-25% 94%,
-0% 50%
+25% 6%,75% 6%,100% 50%,75% 94%,25% 94%,0% 50%
 );
 }
 
-/* ===== SECTIONS ===== */
+/* DIVIDER */
 
-section{
-padding:70px 10%;
+.divider{
+width:80%;
+height:1px;
+background:rgba(255,255,255,0.15);
+margin:30px auto;
 }
 
-section h2{
-margin-bottom:30px;
+/* SPA CONTENT */
+
+.container{
+padding:20px 10%;
+}
+
+.section-title{
 font-size:28px;
+margin-bottom:25px;
 }
 
-/* ===== PROJECTS ===== */
-
-.projects{
+.grid{
 display:grid;
 grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
 gap:20px;
@@ -167,23 +153,14 @@ gap:20px;
 background:#1a1a1a;
 padding:20px;
 border-radius:10px;
-transition:0.3s;
-}
-
-.card:hover{
-transform:translateY(-6px);
-box-shadow:0 10px 30px rgba(0,0,0,0.6);
 }
 
 .card p{
 color:#aaa;
 margin-top:8px;
-font-size:14px;
 }
 
-/* ===== CERTIFICATES ===== */
-
-.cert a{
+.link-box a{
 display:block;
 background:#1a1a1a;
 padding:12px;
@@ -193,79 +170,48 @@ color:white;
 text-decoration:none;
 }
 
-/* ===== EDUCATION ===== */
-
-.edu p{
-color:#aaa;
-margin-top:5px;
-}
-
-/* ===== CONTACT ===== */
-
-.contact a{
-display:inline-block;
-margin-right:15px;
+.contact-icons{
+display:flex;
+gap:20px;
 margin-top:10px;
-color:#7c3aed;
-text-decoration:none;
 }
 
-/* ===== FOOTER ===== */
-
-footer{
-text-align:center;
-padding:30px;
-color:#777;
-}
-
-/* ================= MOBILE RESPONSIVE ================= */
-
-@media (max-width:768px){
-
-nav{
-padding:15px 5%;
-}
-
-nav ul{
-flex-wrap:wrap;
+.contact-icons a{
+display:flex;
+align-items:center;
 justify-content:center;
+width:40px;
+height:40px;
+border-radius:8px;
+background:#1a1a1a;
+transition:0.3s;
 }
 
-nav ul li{
-margin-left:12px;
-margin:6px 10px;
+.contact-icons svg{
+width:22px;
+height:22px;
+fill:#aaa;
+transition:0.3s;
 }
 
-nav ul li a{
-font-size:14px;
+.contact-icons a:hover{
+background:#7c3aed;
 }
 
-.hero{
-flex-direction:column;
-text-align:center;
-gap:40px;
-padding:60px 5%;
+.contact-icons a:hover svg{
+fill:white;
 }
 
-.hero-text h1{
-font-size:34px;
+#typewriter::after{
+content:"|";
+animation:blink 1s infinite;
+margin-left:5px;
 }
 
-.hexagon{
-width:240px;
-height:270px;
-margin:auto;
-}
-
-.hexagon img{
-width:220px;
-height:250px;
-}
-
-section{
-padding:50px 5%;
-}
-
+@keyframes blink{
+0%{opacity:1;}
+50%{opacity:0;}
+100%{opacity:1;}
 }
 
 </style>
@@ -274,125 +220,220 @@ padding:50px 5%;
 <body>
 
 <nav>
+
 <h2>sagar.dev</h2>
 
 <ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#projects">Projects</a></li>
-<li><a href="#certificates">Certificates</a></li>
-<li><a href="#education">Education</a></li>
-<li><a href="#contact">Contact</a></li>
+<li><a href="#!/home">Home</a></li>
+<li><a href="#!/projects">Projects</a></li>
+<li><a href="#!/certificates">Certificates</a></li>
+<li><a href="#!/education">Education</a></li>
+<li><a href="#!/contact">Contact</a></li>
 </ul>
 
 </nav>
 
-<section class="hero" id="home">
+<section class="hero">
 
 <div class="hero-text">
 
 <p>Hello, I'm</p>
 <h1>Sagar <span>Prajapati</span></h1>
 
+<p id="typewriter"></p>
 <p>
-Software Engineering Aspirant<br>
 Python • NumPy • DSA • Exploring AI/ML & Full-Stack Development
 <br><br>
 Ahmedabad, Gujarat, India
 </p>
 
 <div class="hero-buttons">
-<a href="#projects" class="btn">View Projects</a>
-<a href="#" class="btn">Download Resume</a>
+<a class="btn" href="#!/home">About Me</a>
+<a class="btn" href="Resume.pdf" download="Sagar_Prajapati_Resume.pdf" target="_blank">Download Resume</a>
 </div>
 
 </div>
 
 <div class="hexagon">
-<img src="sagar.jpg" alt="Sagar Photo">
+<img src="sagar.jpg">
 </div>
 
 </section>
 
-<section id="projects">
+<div class="divider"></div>
 
-<h2>Projects</h2>
+<!-- Angular View -->
+<div class="container" ng-view></div>
 
-<div class="projects">
+<script>
+
+var app = angular.module("portfolioApp", ["ngRoute"]);
+
+app.config(function($routeProvider){
+
+$routeProvider
+
+.when("/home",{
+template:`
+<h2 class="section-title">About Me</h2>
+
+<div class="grid">
+
+<div class="card">
+<h3>Who I Am</h3>
+<p>I am an IT student at SAL Engineering and Technical Institute under GTU.
+I enjoy programming, problem solving and exploring modern technologies.</p>
+</div>
+
+<div class="card">
+<h3>My Interests</h3>
+<p>Currently learning Python, NumPy, DSA and Web Development.
+I enjoy building projects and exploring AI/ML technologies.</p>
+</div>
+
+</div>
+`
+})
+
+.when("/projects",{
+template:`
+<h2 class="section-title">Projects</h2>
+
+<div class="grid">
 
 <div class="card">
 <h3>Smart Luggage System</h3>
-<p>
-A smart luggage assistant that follows the user using Bluetooth RSSI tracking.
-Includes obstacle detection and GPS tracking for security.
-</p>
+<p>A smart luggage assistant using Bluetooth RSSI tracking with obstacle detection and GPS tracking.</p>
 </div>
 
 <div class="card">
 <h3>Portfolio Website</h3>
+<p>Personal portfolio built using HTML, CSS and JavaScript.</p>
+</div>
+
+<div class="card">
+<h3>FlippedCart</h3>
 <p>
-Personal portfolio website built using HTML, CSS and JavaScript to showcase
-projects, skills and achievements.
+A Flipkart inspired e-commerce frontend clone built using HTML, CSS, JavaScript and Bootstrap.
+Includes product listings, responsive design and modern UI components.
 </p>
 </div>
 
 </div>
+`
+})
 
-</section>
+.when("/certificates",{
+template:`
+<h2 class="section-title">Certificates</h2>
 
-<section id="certificates">
+<div class="link-box">
 
-<h2>Certificates</h2>
-
-<div class="cert">
-
-<a href="certificates/python-course.pdf" target="_blank">
-Python Programming Certificate
+<a href="Al Dataset Collection using Web Scrapping.pdf" target="_blank">
+Al Dataset Collection using Web Scrapping
 </a>
 
-<a href="certificates/web-development.pdf" target="_blank">
-Web Development Certificate
+<a href="Cyber Stalking.pdf" target="_blank">
+Cyber Stalking
 </a>
 
 </div>
+`
+})
 
-</section>
+.when("/education",{
+template:`
+<h2 class="section-title">Education</h2>
 
-<section id="education">
-
-<h2>Education</h2>
-
-<div class="edu">
-
-<h3>B.E. Information Technology</h3>
+<div class="card">
+<h3>B.E Information Technology</h3>
 <p>SAL Engineering and Technical Institute</p>
 <p>Gujarat Technological University (GTU)</p>
+</div>
+`
+})
+
+.when("/contact",{
+template:`
+<h2 class="section-title">Contact</h2>
+
+<div class="contact-icons">
+
+<a href="mailto:sagarprajapati29090@gmail.com" target="_blank">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+<path d="M2 4h20v16H2z" fill="none"/>
+<path d="M22 4H2v16h20V4zm-2 2-8 5-8-5h16zm0 12H4V8l8 5 8-5v10z"/>
+</svg>
+</a>
+
+<a href="https://github.com/Sagar0753" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M12 .5C5.7.5.8 5.4.8 11.7c0 5 3.2 9.3 7.6 10.8.6.1.8-.2.8-.6v-2c-3.1.7-3.8-1.5-3.8-1.5-.5-1.2-1.2-1.5-1.2-1.5-1-.7.1-.7.1-.7 1.1.1 1.7 1.1 1.7 1.1 1 .1.6 2 .6 2 1 .8 2.6.6 3.2.5.1-.7.4-1.2.7-1.5-2.5-.3-5.1-1.3-5.1-5.6 0-1.2.4-2.3 1.1-3.1-.1-.3-.5-1.4.1-3 0 0 .9-.3 3.1 1.1.9-.2 1.8-.3 2.8-.3s1.9.1 2.8.3c2.2-1.4 3.1-1.1 3.1-1.1.6 1.6.2 2.7.1 3 .7.8 1.1 1.9 1.1 3.1 0 4.3-2.6 5.3-5.1 5.6.4.3.7.9.7 1.8v2.7c0 .4.2.7.8.6 4.4-1.5 7.6-5.8 7.6-10.8C23.2 5.4 18.3.5 12 .5z"/>
+</svg>
+</a>
+
+<a href="https://linkedin.com" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M4.98 3.5C4.98 4.88 3.87 6 2.49 6S0 4.88 0 3.5 1.11 1 2.49 1 4.98 2.12 4.98 3.5zM0 8h5v16H0V8zm7.5 0h4.8v2.2h.1c.7-1.3 2.4-2.6 4.9-2.6 5.2 0 6.2 3.4 6.2 7.8V24h-5v-7.4c0-1.8 0-4-2.5-4s-2.9 1.9-2.9 3.9V24h-5V8z"/>
+</svg>
+</a>
+
+<a href="https://instagram.com" target="_blank">
+<svg viewBox="0 0 24 24">
+<path d="M7 2C4.2 2 2 4.2 2 7v10c0 2.8 2.2 5 5 5h10c2.8 0 5-2.2 5-5V7c0-2.8-2.2-5-5-5H7zm5 4.5A5.5 5.5 0 1112 18a5.5 5.5 0 010-11zm6-1.3a1.3 1.3 0 11-2.6 0 1.3 1.3 0 012.6 0z"/>
+</svg>
+</a>
 
 </div>
+`
+})
 
-</section>
+.otherwise({
+redirectTo:"/home"
+});
 
-<section id="contact">
+});
 
-<h2>Contact</h2>
+const lines = [
+'Python Developer',
+'AI/ML Enthusiast',
+'Full-Stack Explorer',
+'Problem Solver'
+];
 
-<div class="contact">
+let lineIndex = 0;
+let charIndex = 0;
+let isDeleting = false;
+const speed = 100;
 
-<a href="mailto:sagarprajapati29090@gmail.com">Email</a>
+function typeWriter() {
 
-<a href="https://github.com/Sagar0753" target="_blank">GitHub</a>
+const element = document.getElementById("typewriter");
+const currentLine = lines[lineIndex];
 
-<a href="https://www.linkedin.com/in/sagar-prajapati-40019b323/" target="_blank">LinkedIn</a>
+if (!isDeleting) {
+element.textContent = currentLine.substring(0, charIndex++);
+} else {
+element.textContent = currentLine.substring(0, charIndex--);
+}
 
-<a href="https://www.instagram.com/sagar_31.01_/?__pwa=1" target="_blank">Instagram</a>
+if (!isDeleting && charIndex === currentLine.length + 1) {
+isDeleting = true;
+setTimeout(typeWriter, 1200);
+return;
+}
 
-</div>
+if (isDeleting && charIndex === 0) {
+isDeleting = false;
+lineIndex = (lineIndex + 1) % lines.length;
+}
 
-</section>
+setTimeout(typeWriter, isDeleting ? 50 : speed);
+}
 
-<footer>
-© 2026 Sagar Prajapati  
-Built with HTML • CSS • JavaScript
-</footer>
+typeWriter();
+
+</script>
 
 </body>
 </html>
